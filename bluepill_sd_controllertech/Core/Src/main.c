@@ -128,12 +128,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /*mount sd card*/
-  fresult=f_mount(&fs, "", 0);
-  if(fresult != FR_OK){
-	  send_uart("error in mounting sd card ... \n\r");
-  }else{
-	  send_uart("SD card mounted successfully ...\n\r");
-  }
+//  fresult=f_mount(&fs, "", 0);
+//  if(fresult != FR_OK){
+//	  send_uart("error in mounting sd card ... \n\r");
+//  }else{
+//	  send_uart("SD card mounted successfully ...\n\r");
+//  }
+  fresult=f_mount(&fs, "/", 1); if(fresult == FR_OK){	 send_uart("SD card mounted successfully ...\n\r"); }
+  else { send_uart("error in mounting sd card ... \n\r");}
 
 
   /*check free space*/
